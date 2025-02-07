@@ -1,17 +1,18 @@
-# Use Node.js image
-FROM node:18
+# Use Node.js image based on Alpine
+FROM node:20-alpine AS build
 
 # Set working directory
 WORKDIR /app
 
-# Copy package.json only (package-lock.json is ignored)
+# Copy only package.json to generate a fresh lock file
 COPY package.json ./
-
-# Install dependencies
 RUN npm install
 
 # Copy the rest of the frontend code
 COPY . .
+
+# Build the React app
+RUN npm run build
 
 # Expose port 5173 for Vite
 EXPOSE 5173

@@ -11,6 +11,7 @@ services:
       - MONGO_URL=mongodb://mongo:27017
     volumes:
       - ./backend:/app
+      - /app/node_modules   # prevent overwriting node_modules from image build
     networks:
       - app_network
 
@@ -22,6 +23,8 @@ services:
       - backend
     volumes:
       - ./frontend:/app
+      - /app/node_modules   # preserve installed node_modules inside the container
+    command: npm run dev -- --host 0.0.0.0  # ensure Vite binds to all interfaces
     networks:
       - app_network
 
