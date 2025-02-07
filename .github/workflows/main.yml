@@ -26,7 +26,7 @@ jobs:
           pip install -r requirements.txt
 
   frontend:
-    name: Frontend Build & Lint
+    name: Frontend Build
     runs-on: ubuntu-latest
 
     steps:
