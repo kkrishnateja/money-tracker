@@ -10,8 +10,7 @@ app = FastAPI()
 # Enable CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"], # React app's URL: Use this if normally running on vs code
-    # allow_origins=["http://localhost"], # React app's URL: if run using docker
+    allow_origins=["http://localhost:5173"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
