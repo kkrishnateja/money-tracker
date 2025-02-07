@@ -4,8 +4,10 @@ FROM node:18
 # Set working directory
 WORKDIR /app
 
-# Copy package.json and install dependencies
-COPY package.json package-lock.json ./
+# Copy package.json only (package-lock.json is ignored)
+COPY package.json ./
+
+# Install dependencies
 RUN npm install
 
 # Copy the rest of the frontend code

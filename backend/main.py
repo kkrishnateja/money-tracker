@@ -18,8 +18,8 @@ app.add_middleware(
 )
 
 # Connect to MongoDB
-client = AsyncIOMotorClient("mongodb://localhost:27017") # Use this if normally running on vs code
-# client = AsyncIOMotorClient("mongodb://mongo:27017")  # Change localhost -> mongo(if run using docker)
+# client = AsyncIOMotorClient("mongodb://localhost:27017") # Use this if normally running on vs code
+client = AsyncIOMotorClient("mongodb://mongo:27017")  # Change localhost -> mongo(if run using docker)
 db = client.transactionDB
 collection = db.transactions
 
